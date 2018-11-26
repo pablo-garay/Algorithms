@@ -42,4 +42,4 @@ def candies(n, arr):
 print candies(3, [1, 2, 2])  # 4
 print candies(10, [2, 4, 2, 6, 1, 7, 8, 9, 2, 1])  # 19
 print candies(8, [2, 4, 3, 5, 2, 6, 4, 5])  # 12
-print candies(10, [9, 2, 3, 6, 5, 4, 3, 2, 2, 2])  #
+print candies(10, [9, 2, 3, 6, 5, 4, 3, 2, 2, 2])  # 22
