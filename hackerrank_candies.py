@@ -22,8 +22,8 @@ def candies(n, arr):
         if i > 0 and arr[i] > arr[i - 1] and output[i] <= output[i - 1]:
             output[i] = output[i - 1] + 1
 
-    print arr  # for debugging
-    print output  # for debugging
+    # print arr  # for debugging
+    # print output  # for debugging
     return sum(output)
 
 # if __name__ == '__main__':
