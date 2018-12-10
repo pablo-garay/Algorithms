@@ -15,19 +15,13 @@ class Solution(object):
         self.memo = [[None for j in xrange(length)] for i in xrange(length)]
 
         start, end = (0, len(s) - 1)
-
-        for i in xrange(start, end + 1):
-            # print "\nWill check " + self.string_given[start:i + 1]
-            self.check(start, end)
+        self.check(0, end)
         # print self.memo
-        return self.memo[start][end]
+        return self.memo[0][end]
 
 
     def check(self, start, end):
-        if not self.string_given[start:end + 1]:  # string is empty
-            # print "Empty string: " + self.string_given[start:end + 1]
-            return True
-        elif self.memo[start][end] is not None:
+        if self.memo[start][end] is not None:
             # print self.string_given[start:end + 1] + " already calculated and in memo."
             return self.memo[start][end]
         elif self.string_given[start:end + 1] in self.wordDict:
@@ -36,8 +30,8 @@ class Solution(object):
             return True
 
         else:
-            for i in xrange(start, end):
-                if self.check(start, i) and self.check(i + 1, end):
+            for i in reversed(xrange(start, end)):
+                if self.check(i + 1, end) and self.check(start, i):
                     self.memo[start][end] = True
                     return True
 
