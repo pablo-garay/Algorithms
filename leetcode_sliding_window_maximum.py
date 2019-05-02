@@ -23,7 +23,7 @@ class MaxHeap:
         return -x[0]
 
 
-class Solution(object):
+class Solution(object):  # O(n log n)
     def maxSlidingWindow(self, nums, k):
         """
         :type nums: List[int]
@@ -35,7 +35,6 @@ class Solution(object):
         curr_window = Counter(nums[:k - 1])
         max_heap = [-elem for elem in nums[:k - 1]]
         MaxHeap.heapify(max_heap)
-        # print MaxHeap.heapget(max_heap)
         last_pos = 0
 
         for n in nums[k - 1:]:
@@ -43,9 +42,8 @@ class Solution(object):
             MaxHeap.heappush(max_heap, n)
             max_window = MaxHeap.highest(max_heap)
             while max_window not in curr_window:
-                MaxHeap.heappop(max_heap)
+                MaxHeap.heappop(max_heap)  # O(log k)
                 max_window = MaxHeap.highest(max_heap)
-                # print max_window
 
             output.append(max_window)
 
@@ -58,3 +56,4 @@ class Solution(object):
 
 
 print Solution().maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)
+print Solution().maxSlidingWindow([9, 8, 7, 6, 5, 4, 3], 3)
