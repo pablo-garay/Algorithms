@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # Optimal O(n) solution
     def canJump(self, nums):
         goal = len(nums) - 1
 
