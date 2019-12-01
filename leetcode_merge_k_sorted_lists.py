@@ -37,10 +37,6 @@ class Solution(object):
         return head
 
     def mergeKLists(self, lists):
-        """
-        :type lists: List[ListNode]
-        :rtype: ListNode
-        """
         if len(lists) < 1: return None
         elif len(lists) == 1: return lists[0]
 
