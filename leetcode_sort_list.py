@@ -33,10 +33,10 @@ class Solution(object):
             while left is not None or right is not None:
                 if left is None:
                     node.next = right
-                    right = right.next
+                    break
                 elif right is None:
                     node.next = left
-                    left = left.next
+                    break
                 else:
                     if left.val <= right.val:
                         node.next = left
