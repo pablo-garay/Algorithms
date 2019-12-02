@@ -1,4 +1,4 @@
-class Solution(object):  # O(n) solution - optimal as we need to traverse all n elems
+class Solution(object):  # O(n) solution - optimal as we need to traverse all n elems in the worst case
     def maxSubArray(self, nums):
         global_max = carried = nums[0]
 

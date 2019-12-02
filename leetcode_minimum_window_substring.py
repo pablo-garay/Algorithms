@@ -1,6 +1,6 @@
 from collections import Counter
 
-class Solution(object):
+class Solution(object):  # O(n). Optimal as we need to visit each elem at least once (worst case)
     def minWindow(self, s, t):
         start, end = (0, 0)
         needed = Counter(t)
