@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # Time complexity: O(n), all n strings in array are visited. Optimal as need to visit each array elem in worst case
     def get_common_prefix(self, s1, s2):
         res = ""
 
@@ -17,6 +17,8 @@ class Solution(object):
 
         for i in xrange(2, len(strs)):
             common_prefix = self.get_common_prefix(common_prefix, strs[i])
+            if common_prefix == "":
+                return common_prefix
 
         return common_prefix
 
