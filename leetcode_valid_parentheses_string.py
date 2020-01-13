@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):   # O(n) as we traverse each char in string once (optimal as need to visit each once at least)
     def checkValidString(self, s):
         open_min, open_max = (0, 0)
 
