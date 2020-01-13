@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # O(n) : one pass. Optimal as we need to visit check each elem of the string at least once
     curr = 0
 
     def scoreOfParentheses(self, S):
