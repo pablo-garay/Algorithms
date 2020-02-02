@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # O(n) : optimal as we need to traverse all n elems in worst case
     def isPalindrome(self, s):
         left, right = 0, len(s) - 1
 
