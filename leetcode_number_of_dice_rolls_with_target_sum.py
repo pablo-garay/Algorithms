@@ -20,7 +20,7 @@
 
 from collections import deque
 
-class Solution(object):
+class Solution(object):  # Complexity: O(d^2 f)
     def numRollsToTarget(self, d, f, target):
         memo = {(0, 0): 1, (d, target): 0}
         queue = deque([(0, 0)])  # (die, suma)
