@@ -1,5 +1,5 @@
 class Solution(object):
-    def eventualSafeNodes(self, graph):
+    def eventualSafeNodes(self, graph):  # O(m + n) as each edge and node in graph times visit is in linear order
         outgoing = [0 for _ in xrange(len(graph))]
         to = [[] for dest in xrange(len(graph))]
         safe_state = set()
