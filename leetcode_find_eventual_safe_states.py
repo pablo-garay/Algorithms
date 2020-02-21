@@ -1,30 +1,34 @@
-from collections import defaultdict
-
 class Solution(object):
     def eventualSafeNodes(self, graph):
-        outgoing = defaultdict(set)
+        outgoing = [0 for _ in xrange(len(graph))]
         to = [[] for dest in xrange(len(graph))]
-        dest_list = defaultdict(set)
+        safe_state = set()
         output = []
+        output_set = set()
 
         for orig in xrange(len(graph)):
-            dest_list[orig] = set(graph[orig])
-            outgoing[len(dest_list[orig])].add(orig)
+            outgoing[orig] = len(graph[orig])
+            if outgoing[orig] == 0:
+                safe_state.add(orig)
 
-            for dest in dest_list[orig]:
+            for dest in graph[orig]:
                 to[dest].append(orig)
 
-        while outgoing[0]:
-            dest = outgoing[0].pop()
-            output.append(dest)
+        while safe_state:
+            dest = safe_state.pop()
+            output_set.add(dest)
 
             for orig in to[dest]:
-                prev, curr = (len(dest_list[orig]), len(dest_list[orig]) - 1)
-                outgoing[prev].remove(orig)
-                dest_list[orig].remove(dest)
-                outgoing[curr].add(orig)
+                outgoing[orig] -= 1
 
-        return sorted(output)
+                if outgoing[orig] == 0:
+                    safe_state.add(orig)
+
+        for node in xrange(len(graph)):  # O(n) as opposed to sorting - which would take O(n log n)
+            if node in output_set:
+                output.append(node)
+
+        return output
 
 
 print Solution().eventualSafeNodes(graph=[[1, 2], [2, 3], [5], [0], [5], [], []])
