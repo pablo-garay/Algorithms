@@ -22,5 +22,3 @@ class Solution(object):  # O(n) as each node in linked list is traversed once on
 
         return node
 
-
-print Solution().removeNthFromEnd(head=[1, 2, 3, 4, 5], n=2)
