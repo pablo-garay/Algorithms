@@ -1,4 +1,4 @@
-class Solution(object):  # O(n) as each node in linked list is traversed once only (optimal as need to visit each once at least)
+class Solution(object):  # O(n) as each node in linked list is traversed once only (optimal as need to visit each once at least) - only one pass
     count = 0
 
     def removeNthFromEnd(self, head, n):
