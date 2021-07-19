@@ -3,7 +3,7 @@
 # @return a bool
 # def isBadVersion(version):
 
-class Solution(object):
+class Solution(object):  # O(log n) solution. Optimal as it's a search in a space of n ordered elements
     def firstBadVersion(self, n):
         start, end = 1, n
 
