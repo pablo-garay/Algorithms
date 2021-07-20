@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-class Solution(object):  # BFS. Optimal as need to traverse each node/edge at least once in worst case
+class Solution(object):  # BFS: O(m + n). Optimal as need to traverse each node/edge at least once in worst case
     def findCheapestPrice(self, n, flights, src, dst, k):
         self.adj = defaultdict(set)
         self.cost = defaultdict(dict)
