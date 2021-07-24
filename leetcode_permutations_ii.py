@@ -3,20 +3,19 @@ from collections import Counter
 class Solution(object):
     def permuteUnique(self, nums):
         self.res = []
-        self.length = len(nums)
         self.permutations([], Counter(nums))
         return self.res
 
     def permutations(self, so_far, rest):
-        if len(so_far) == self.length:
+        if not rest:
             self.res.append(so_far[:])
             return
 
         for item in rest.keys():
-            if rest[item] == 0:
-                continue
             so_far.append(item)
             rest[item] -= 1
+            if rest[item] == 0:
+                del rest[item]
             self.permutations(so_far, rest)
             so_far.pop()
             rest[item] += 1
