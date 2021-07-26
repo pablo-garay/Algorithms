@@ -1,15 +1,15 @@
-from collections import Counter, defaultdict
+from collections import defaultdict
 
 
 class Solution(object):
     def loudAndRich(self, richer, quiet):
         count = [0 for _ in xrange(len(quiet))]
-        self.adj = defaultdict(set)
+        self.adj = defaultdict(list)
         self.res = [None for _ in  xrange(len(quiet))]
         self.visited = [False for _ in  xrange(len(quiet))]
 
         for (v, u) in richer:
-            self.adj[u].add(v)
+            self.adj[u].append(v)
             count[v] += 1
 
         for node in xrange(len(quiet)):
@@ -28,17 +28,12 @@ class Solution(object):
 
         for v in self.adj[node]:
             partial_greater, partial_level = self.dfs(v, quiet)
-
             greater.append(partial_greater)
             levels.append(partial_level)
 
         min_val = min(levels)
         min_index = levels.index(min_val)
         self.res[node] = greater[min_index]
-
-        # print "For node: " + str(node) + " consider nodes: " + str(greater) + " with quiet levels: " + str(levels)
-        # print "Min is: " + str(min_val) + " which corresponds to node: " + str(greater[min_index])
-        # print
 
         return greater[min_index], min_val
 
