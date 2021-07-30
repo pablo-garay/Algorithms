@@ -1,34 +1,32 @@
-from collections import deque
+class Solution(object):
+    def updateMatrix(self, matrix):
+        if len(matrix) == 0:
+            return []
+        n_rows = len(matrix)
+        n_cols = len(matrix[0])
 
-class Solution(object):  # Complexity is linear (optimal) as each elem in matrix is visited at most twice
-    def updateMatrix(self, mat):
-        num_r, num_c = len(mat), len(mat[0])
-        frontier = deque()
+        res = [[None for c in xrange(n_cols)] for r in xrange(n_rows)]
 
-        for r in xrange(num_r):
-            for c in xrange(num_c):
-                if mat[r][c] == 1:
-                    mat[r][c] = None
+        frontier = []
+        for row in xrange(n_rows):
+            for col in xrange(n_cols):
+                if matrix[row][col] == 0:
+                    res[row][col] = 0
+                    frontier.append((row, col))
 
-                    for r2, c2 in [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]:
-                        if 0 <= r2 < num_r and 0 <= c2 < num_c and mat[r2][c2] == 0:
-                            frontier.append((r, c))
-                            break
-
+        level = 1
         while frontier:
-            (r, c) = frontier.popleft()
-            label = float("inf")
+            next_frontier = []
+            for row, col in frontier:
+                for r,c in ((row + 1, col), (row - 1, col), (row, col + 1), (row, col - 1)):
+                    if 0 <= r < n_rows and 0 <= c < n_cols:
+                        if res[r][c] is None:
+                            res[r][c] = level
+                            next_frontier.append((r, c))
+            frontier = next_frontier
+            level += 1
 
-            for r2, c2 in [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]:
-                if 0 <= r2 < num_r and 0 <= c2 < num_c:
-                    if mat[r2][c2] is not None:
-                        label = min(label, mat[r2][c2] + 1)
-                        mat[r][c] = label
-                    else:
-                        frontier.append((r2, c2))
-
-        return mat
-
+        return res
 
 print Solution().updateMatrix(mat = [[0,0,0],[0,1,0],[0,0,0]])
 print Solution().updateMatrix(mat = [[0,0,0],[0,1,0],[1,1,1]])
