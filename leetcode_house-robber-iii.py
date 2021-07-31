@@ -16,8 +16,8 @@ class Solution(object):
         if node.left is None and node.right is None:  # leaf node
             return node.val
 
-        best = max(node.val + self.opt(node.left, id * 2, children_op=True) + self.opt(node.right, id * 2 + 1, children_op=True),
-                   self.opt(node.left, id * 2) + self.opt(node.right, id * 2 + 1))
+        best = max(self.opt(node.left, id * 2) + self.opt(node.right, id * 2 + 1),
+                   node.val + self.opt(node.left, id * 2, children_op=True) + self.opt(node.right, id * 2 + 1, children_op=True))
         self.memo[id] = best
 
         return best
