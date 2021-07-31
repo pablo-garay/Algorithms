@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # (DP) Time complexity: Linear, computation on each node takes constant time. Optimal as need to traverse each node in worst case
     def rob(self, root):
         self.memo = {}
         return self.opt(root, 1)
