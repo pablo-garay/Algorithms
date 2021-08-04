@@ -36,7 +36,7 @@ class Solution(object):  # BFS: Time complexity is linear. Optimal as need to vi
 
         return root
 
-    ## O(1) space solution
+    ## O(1) space solution - linear in time
     # def connect(self, root):
     #     while root and root.left:
     #         next = root.left
