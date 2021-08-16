@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # O(n) time, O(1) space. Optimal as need to traverse each elem in array in worst case. Runtime: 200 ms, faster than 94.71%
     def productExceptSelf(self, nums):
         count_zeros = nums.count(0)
 
