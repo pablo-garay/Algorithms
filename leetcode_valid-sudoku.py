@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-class Solution(object):  # Complexity: Linear. One pass. Optimal as each array item has to be visited once in worst case
+class Solution(object):  # Complexity: Linear. One pass. Optimal as each array item has to be visited once in worst case. Faster than 91.79 %
     def isValidSudoku(self, board):
         visited_row = defaultdict(set)
         visited_col = defaultdict(set)
