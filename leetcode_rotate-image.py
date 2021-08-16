@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # Linear time complexity. Optimal as each elem in array has to be visited at least once in worst case
     def rotate(self, matrix):
         def rotate_pos_clockwise(row, col):
             return col, self.max_ind - row
