@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # One pass. Optimal as need to traverse whole tree in the worst case. Runtime beats 91.91 % of python submissions.
     def longestUnivaluePath(self, root):
         self.longest = 0
         self.dfs(root)
