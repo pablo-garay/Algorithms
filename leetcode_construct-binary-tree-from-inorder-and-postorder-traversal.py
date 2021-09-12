@@ -5,7 +5,7 @@ class TreeNode(object):
         self.left = left
         self.right = right
 
-class Solution(object):  # Time complexity: O(n) - just one pass
+class Solution(object):  # Time complexity: O(n)
     def buildTree(self, inorder, postorder):
         if not inorder:
             return None
