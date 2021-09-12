@@ -15,11 +15,11 @@ class Solution(object):  # O(n) solution as we only make one pass in buildTree2
         if not inorder:  # empty list
             return None
 
-        root_val = preorder.popleft()
-        root_node = TreeNode(root_val)
+        ind_root_val = inorder.index(preorder.popleft())
+        root_node = TreeNode(inorder[ind_root_val])
 
-        root_node.left  = self.buildTree2(preorder, inorder[:inorder.index(root_val)])
-        root_node.right = self.buildTree2(preorder, inorder[inorder.index(root_val) + 1:])
+        root_node.left  = self.buildTree2(preorder, inorder[:ind_root_val])
+        root_node.right = self.buildTree2(preorder, inorder[ind_root_val + 1:])
 
         return root_node
 
