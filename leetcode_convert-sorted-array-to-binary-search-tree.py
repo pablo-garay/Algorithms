@@ -1,8 +1,3 @@
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None):
@@ -12,18 +7,10 @@ class TreeNode(object):
 
 
 import math
-class Solution(object):  # O(n) where n is length of linked list (two passes). Optimal as need to visit each elem in worst case. Runtime: 112 ms, faster than 99.30%
-    def sortedListToBST(self, head):
-        if head is None:
-            return None
-
-        self.li = []
-        node = head
-        while node is not None:
-            self.li.append(node.val)
-            node = node.next
-
-        return self.insert_elem(0, len(self.li) - 1)
+class Solution(object):  # Time complexity: O(n) one pass - optimal as need to visit all elemns in worst case. Runtime: 40 ms, faster than 98.59%
+    def sortedArrayToBST(self, nums):
+        self.li = nums
+        return self.insert_elem(0, len(nums) - 1)
 
     def insert_elem(self, left, right):
         if left > right:
