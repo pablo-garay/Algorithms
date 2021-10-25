@@ -1,4 +1,4 @@
-class Solution(object):  # Borrowed solution. O(n^2)
+class Solution(object):  # Borrowed solution. Time: O(n^2). Space: O(1)
     def longestPalindrome(self, s):
         res = ""
         for i in xrange(len(s)):
