@@ -1,15 +1,11 @@
-from collections import OrderedDict
-
 class Solution(object):  # Time: O(n log n) - runtime beats 88.70 %
     def nextPermutation(self, nums):
         if len(nums) <= 1: return
-        digits = OrderedDict()
 
         right = len(nums) - 2
         swap = False
 
         while right >= 0:
-            digits[nums[right]], digits[nums[right + 1]] = (right, right + 1)
             if nums[right] < nums[right + 1]:
                 mini, ind = (nums[right + 1], right + 1)
 
@@ -25,8 +21,6 @@ class Solution(object):  # Time: O(n log n) - runtime beats 88.70 %
         else:
             nums[right], nums[ind] = (nums[ind], nums[right])
             nums[right + 1:] = sorted(nums[right + 1:])
-
-        print nums
 
 
 Solution().nextPermutation(nums = [1,2,3])
