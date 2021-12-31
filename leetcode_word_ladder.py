@@ -34,3 +34,6 @@ class Solution(object):
             q = new_q
 
         return 0
+
+print Solution().ladderLength(beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"])
+print Solution().ladderLength(beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"])
