@@ -21,7 +21,6 @@ class Solution(object):  # Complexity: # O(n + k log n)
         return top_k
 
 
-
 print Solution().topKFrequent(nums = [1,1,1,2,2,3], k = 2)
 print Solution().topKFrequent(nums = [1,1,1,2,2,3,3,3], k = 2)
 print Solution().topKFrequent(nums = [1,1,1,2,2,3,3,3,3], k = 1)
