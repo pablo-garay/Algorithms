@@ -5,8 +5,8 @@ class Solution(object):
         for i2 in reversed(xrange(len(text2))):
             for i1 in reversed(xrange(len(text1))):
                 memo[i1][i2] = max(1 + memo[i1 + 1][i2 + 1] if text1[i1] == text2[i2] else 0,
-                                    memo[i1 + 1][i2],
-                                    memo[i1][i2 + 1])
+                                   memo[i1 + 1][i2],
+                                   memo[i1][i2 + 1])
 
         return memo[0][0]
 
