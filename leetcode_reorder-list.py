@@ -1,4 +1,4 @@
-class Solution(object):  # Time: O(n) for n elements in linked list - optimal as need to visit all in worst case
+class Solution(object):  # Time: O(n) for n elements in linked list - optimal as need to visit all nodes in worst case
     def reorderList(self, head):  # RECURSIVE VERSION
         if head is None or head.next is None or head.next.next is None: return
         self.f(head, head)
