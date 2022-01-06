@@ -1,6 +1,6 @@
 class Solution(object):
     def eraseOverlapIntervals(self, intervals):  # Time: O(n log n) - complexity is dominated by sorting. Space: O(1) - less than 95.46%
-        intervals.sort(key=lambda x: (x[1], x[0]))  # O(n log n)
+        intervals.sort(key=lambda x: (x[1], x[0]))  # O(n log n) | Fundamental to sort by end of interval
         num = 0
 
         left, right = intervals[0]
