@@ -1,4 +1,4 @@
-class Solution(object):  # Time: O(n). Space: O(1)
+class Solution(object):  # Time: O(n) - optimal as need to traverse all n nodes in worst case. Space: O(1)
     def maxDepth(self, root):
         self.max_depth = 0
         self.dfs(root, 1)
