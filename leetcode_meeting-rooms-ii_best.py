@@ -7,8 +7,6 @@ class Interval(object):
 """
 class Solution:  # Time: O(n log n). Space: O(n)
     def minMeetingRooms(self, intervals):
-        if len(intervals) == 0: return 0
-
         events = []
         for interval in intervals:  # O(n)
             events.append((interval.end, 0))  # 0 comes before 1 when sorting
