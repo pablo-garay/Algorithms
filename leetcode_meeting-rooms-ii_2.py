@@ -7,15 +7,15 @@ class Interval(object):
 """
 from heapq import *
 
-class Solution:
+class Solution:  # Time: O(n) / linear - optimal as need to traverse all intervals in worst case. Space: O(n)
     def minMeetingRooms(self, intervals):
         if len(intervals) == 0: return 0
 
         heap_start = []; heap_end = []
         for interval in intervals:
-            heappush(heap_start, interval.start)
-            heappush(heap_end, interval.end)
-        # heapify(heap_start); heapify(heap_end)  # O(n)
+            heap_start.append(interval.start)
+            heap_end.append(interval.end)
+        heapify(heap_start); heapify(heap_end)  # O(n)
 
         max_rooms = curr_rooms = 0
         while heap_start:  # O(n)
