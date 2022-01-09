@@ -7,7 +7,7 @@ class Interval(object):
 """
 from heapq import *
 
-class Solution:  # Time: O(n) / linear - optimal as need to traverse all intervals in worst case. Space: O(n)
+class Solution:  # Time: O(n log n). Space: O(n)
     def minMeetingRooms(self, intervals):
         if len(intervals) == 0: return 0
 
@@ -23,13 +23,13 @@ class Solution:  # Time: O(n) / linear - optimal as need to traverse all interva
 
             if heap_end[0] <= heap_start[0]:
                 curr_rooms -= 1
-                heappop(heap_end)
+                heappop(heap_end)  # O(log n)
                 # print "max_rooms: ", max_rooms, "curr_rooms: ", curr_rooms
 
             else:
                 curr_rooms += 1
                 max_rooms = max(max_rooms, curr_rooms)
-                heappop(heap_start)
+                heappop(heap_start)  # O(log n)
                 # print "max_rooms: ", max_rooms, "curr_rooms: ", curr_rooms
 
         return max_rooms
