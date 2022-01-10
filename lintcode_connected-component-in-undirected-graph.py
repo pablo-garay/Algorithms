@@ -4,7 +4,6 @@ class UndirectedGraphNode:
          self.label = x
          self.neighbors = []
 """
-
 from collections import defaultdict
 class Solution:  # Time cost: 285ms, 98.00% beat percent
     """
