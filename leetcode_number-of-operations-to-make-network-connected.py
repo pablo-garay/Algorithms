@@ -2,6 +2,8 @@ from collections import defaultdict  # Runtime: 452 ms, faster than 85.99%
 
 class Solution(object):  # Time: O(|v| + |e|) - each vertex visited at most once. Optimal as need to traverse whole graph in worse case. Space: # O(|v| + |e|)
     def makeConnected(self, n, edges):
+        if len(edges) < n - 1: return -1
+
         self.visited = set()
         self.adj = defaultdict(set)
         num_edges = num_connected_comp = 0
@@ -17,7 +19,7 @@ class Solution(object):  # Time: O(|v| + |e|) - each vertex visited at most once
                 self.dfs(node)
 
         # print "num_connected_comp, num_edges", num_connected_comp, num_edges
-        return (num_connected_comp - 1) if num_edges >= (n - 1) else -1
+        return num_connected_comp - 1
 
     def dfs(self, orig):
         self.visited.add(orig)
