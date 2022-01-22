@@ -1,4 +1,4 @@
-arr = [5, 2, 5, 6, 26, 7, 8, 9, 2, 1, 2, 3]
+arr = [5, 2, 5, 6, 26, 7, 8, 9, 2, 1, 2, -1, 3]
 
 def mergesort(arr, start, end):
     if start == end:
@@ -26,4 +26,4 @@ def mergesort(arr, start, end):
     arr[start:end + 1] = ordered
 
 
-mergesort(arr, 0, len(arr) - 1)
+print arr; mergesort(arr, 0, len(arr) - 1); print arr
