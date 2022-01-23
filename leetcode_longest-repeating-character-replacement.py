@@ -1,6 +1,6 @@
 from collections import defaultdict
 class Solution(object):
-    def characterReplacement(self, s, k):
+    def characterReplacement(self, s, k):  # Time: O(n) (sliding window) - optimal as need to traverse whole string in worst case. Space: O(|s|)
         d = defaultdict(list)
         ans = k + 1 if k < len(s) else len(s)
 

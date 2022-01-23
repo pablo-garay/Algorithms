@@ -1,5 +1,5 @@
 class Solution(object):  # Runtime: 20 ms, faster than 97.23%
-    def findMin(self, nums):  # Time: O(log n) for na array elems (bin search complexity). Space: O(1)
+    def findMin(self, nums):  # Time: O(log n) for n array elems (bin search complexity). Space: O(1)
         left, right = (0, len(nums) - 1)
         mid = (left + right) / 2
 
