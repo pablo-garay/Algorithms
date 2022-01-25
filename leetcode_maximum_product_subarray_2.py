@@ -9,10 +9,8 @@ class Solution(object):  # Time: O(n) - optimal as we need to traverse all the n
                 mini = maxi = 1
                 continue
 
-            a = mini * num;
-            b = maxi * num
-            mini = min(a, b, num)
-            maxi = max(a, b, num)
+            a = mini * num; b = maxi * num
+            mini = min(a, b, num); maxi = max(a, b, num)
 
             global_max = max(global_max, maxi)
 
