@@ -2,15 +2,22 @@ parent, size = {}, {}
 
 def find(x):
     while parent[x] != x:
-        parent[x] = parent[parent[x]]; x = parent[x]
+        parent[x] = parent[parent[x]]
+        x = parent[x]
     return x
 
 def union(x, y):
-    x, y = (find(x), find(y))
-    if x == y: return 0
-    parent[x] = parent[y] = x if size[x] >= size[y] else y
-    size[x] = size[y] = size[x] + size[y]
-    return 1
+    x = find(x)
+    y = find(y)
+
+    if x == y:
+        return
+
+    if size[x] < size[y]:
+        (x, y) = (y, x)
+
+    parent[y] = x
+    size[x] = size[x] + size[y]
 
 class Solution(object):
     def longestConsecutive(self, nums):
