@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # Runtime: 1388 ms, faster than 99.16%. Memory Usage: less than 96.95%
     def check_adjacent(self, word, curr_letter_index, pos_dict, (last_row, last_col)):
         if curr_letter_index >= len(word):
             return True
@@ -19,11 +19,6 @@ class Solution(object):
 
 
     def exist(self, board, word):
-        """
-        :type board: List[List[str]]
-        :type word: str
-        :rtype: bool
-        """
         pos_dict = {}
         self.num_rows, self.num_cols = len(board), len(board[0])
         self.used = set()
