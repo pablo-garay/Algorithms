@@ -1,5 +1,5 @@
-class Solution(object):
-    def uniquePaths(self, m, n):
+class Solution(object):  # Runtime: 16 ms, faster than 88.08%
+    def uniquePaths(self, m, n):  # Time: O(m x n) - optimal as need to traverse whole matrix in worst case. Space: O(m x n)
         """
         :type m: int
         :type n: int
@@ -23,6 +23,7 @@ class Solution(object):
                     memo[r][c] += memo[r][c + 1]
 
         return memo[0][0] # array elem which contains the final answer
+
 
 print Solution().uniquePaths(3, 2)
 print Solution().uniquePaths(7, 3)
