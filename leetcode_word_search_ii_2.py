@@ -1,42 +1,38 @@
 from collections import defaultdict
 class Solution(object):  # Runtime: 613 ms, faster than 73.24%. Memory Usage: less than 100.00%
     def findWords(self, board, words):
-        res = []
-        for word in words:
-            if self.exist(board, word):
-                res.append(word)
-        return res
-
-    def exist(self, board, word):
-        pos = defaultdict(set)
+        res = []; pos = defaultdict(set)
 
         for r in xrange(len(board)):
             for c in xrange(len(board[0])):
                 pos[board[r][c]].add((r, c))
 
-        if set(word).difference(pos.keys()):
-            return False
+        for word in words:
+            if set(word).difference(pos.keys()): continue
+            # start from extreme with lowest frequency
+            wordsearch = word[::-1] if len(pos[word[-1]]) < len(pos[word[0]]) else word
 
-        # start from extreme with lowest frequency
-        if len(pos[word[-1]]) < len(pos[word[0]]):
-            word = word[::-1]
-
-        for (r, c) in pos[word[0]]:
-            if self.search(word, 0, pos, r, c, []):
-                return True
-        return False
+            for (r, c) in list(pos[wordsearch[0]]):
+                if self.search(wordsearch, 0, pos, r, c, []):
+                    res.append(word)
+                    break
+        return res
 
     def search(self, word, ind, pos, r, c, stack):
-        if ind == len(word) - 1: return True
+        if ind == len(word) - 1:
+            return True
+
+        found = False
         pos[word[ind]].remove((r, c))
 
         for (r2, c2) in [(r + 1, c), (r - 1, c), (r, c - 1), (r, c + 1)]:
             if (r2, c2) in pos[word[ind + 1]] and self.search(word, ind + 1, pos, r2, c2, stack + [(r2, c2)]):
-                return True
+                found = True
+                break
 
         pos[word[ind]].add((r, c))
+        return found
 
-        return False
 
 
 board = [['A','B','C','E'],
