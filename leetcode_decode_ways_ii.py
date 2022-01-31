@@ -2,10 +2,6 @@ class Solution(object):
     MAX_CHAR_VAL = 26
 
     def numDecodings(self, s):  # O(n)
-        """
-        :type s: str
-        :rtype: int
-        """
         if s[0] == '0': return 0  # starts with 0: no way to decode
         # we add 2 extra elements to array which should be init'ed to 1 for correct computation
         memo = [None for i in xrange(len(s) + 2)]
