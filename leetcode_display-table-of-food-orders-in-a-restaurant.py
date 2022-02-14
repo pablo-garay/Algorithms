@@ -1,6 +1,6 @@
-from collections import defaultdict
-class Solution(object):  # Runtime: 424 ms, faster than 95.74%
-    def displayTable(self, orders):  # Time: O(n log n) as need to sort to give output. Space: O()
+from collections import defaultdict  # Runtime: 424 ms, faster than 95.74%. Best we can do O(n^2) as output in worst case is nxn matrix
+class Solution(object):  # Time: O(n log n + n^2) as need to sort to give output and in worst case each order introduces new table & new item at same time (so we might have n tables and n items)
+    def displayTable(self, orders):  # Space: O(n^2) each order in worst case introduces new table & new item (n tables, n items)
         items = set()
         mapping = defaultdict(lambda: defaultdict(int))  # this is super cool, use it in the future wisely
         out = []
