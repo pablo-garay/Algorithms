@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution(object):  # Time: O(n) Space: O(n)
     def hasCycle(self, head):
         visited = set()
 
