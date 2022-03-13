@@ -1,5 +1,5 @@
 class Solution(object):  # Runtime: 20 ms, faster than 93.27%
-    # Recursive. Time: O(n) for n elems in linked list - optimal as need to traverse all elems. Space: O(1)
+    # Recursive. Time: O(n) for n elems in linked list - optimal as need to traverse all elems. Space: O(n)
     # def reverseList(self, head):
     #     return self.revert(head, None)
     #
