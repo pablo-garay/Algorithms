@@ -1,5 +1,5 @@
 from collections import Counter
-class Solution(object):
+class Solution(object):  # Memory Usage: less than 98.41%
     def closeStrings(self, word1, word2):  # Time: O(len(word1) + O(len(word2))). Space: O(1) - we keep count of max 26 chars so it's bounded
         if len(word1) != len(word2): return False
 
