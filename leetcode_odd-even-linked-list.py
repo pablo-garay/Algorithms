@@ -1,18 +1,21 @@
-class Solution(object):  # Complexity | Time: Linear (one pass only, optimal as need to traverse each elem once in worst case). Space: O(1)
-    def oddEvenList(self, head):
+class Solution(object): # Runtime 20 ms Beats 97% Memory Beats 97%
+    def oddEvenList(self, head): # Time: O(n) Space: O(1) - Optimal as need to traverse whole linked list in worst case (also: one pass only)
         if head is None or head.next is None: return head
 
-        curr_odd, curr_even, next_odd = (head, head.next, head.next.next)
-        first, second = (curr_odd.next, curr_even.next)
+        first_link = head.next  # this is where the circling back should occur
+        odd = False  # track odd or even num of nodes
+        node = head
 
-        while second is not None:
-            third = second.next
-            curr_odd.next, next_odd.next, curr_even.next = (second, first, third)
-
-            if third is not None:
-                second = curr_even.next.next
-                curr_odd, curr_even, next_odd = (curr_odd.next, third, third.next)
-            else:
-                break
-
+        while node.next.next is not None:  # O(n)
+            visit_next = node.next
+            node.next = node.next.next
+            node = visit_next
+            odd = not odd
+        
+        if odd:
+            node.next.next = first_link
+            node.next = None
+        else: # even 
+            node.next = first_link
+        
         return head
