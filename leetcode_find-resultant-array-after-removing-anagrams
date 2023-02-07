@@ -1,0 +1,13 @@
+class Solution(object):  # Runtime 25 ms Beats 100%
+    def removeAnagrams(self, words):
+        if not words: return words
+        curr = tuple(sorted(words[0]))
+        out = [words[0]]
+
+        for i in xrange(1, len(words)):
+            encoded = tuple(sorted(words[i]))
+            if curr != encoded:
+                out.append(words[i])
+                curr = encoded
+        
+        return out
