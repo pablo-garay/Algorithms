@@ -1,5 +1,5 @@
 class Solution(object):  # O(n log n) + O(n) = O(n log n). Sorting takes over the complexity
-    def merge(self, intervals):
+    def merge(self, intervals):  # Runtime 64 ms Beats 100% Memory Beats 100%
         if len(intervals) == 0: return []
         intervals.sort(key=lambda x: int(x[0]))  # O(n log n)
 
