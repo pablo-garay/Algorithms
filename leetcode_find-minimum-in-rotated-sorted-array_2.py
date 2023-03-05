@@ -1,5 +1,5 @@
-class Solution(object):
-    def findMin(self, nums):
+class Solution(object):  # Runtime 23 ms Beats 82.82%
+    def findMin(self, nums):  # Time: O(log n)
         mini = nums[0]
         left, right = (0, len(nums) - 1)
 
