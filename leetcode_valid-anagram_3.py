@@ -1,6 +1,6 @@
 from collections import Counter
 
-class Solution:
+class Solution: # O(n) . 0ms Beats 100.00%
     def isAnagram(self, s: str, t: str) -> bool:
         count1 = Counter(s)
         count2 = Counter(t)
