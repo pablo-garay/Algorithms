@@ -3,7 +3,9 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution:
+
+# Beats 100.00%
+class Solution:  # O(n) optimal as need to traverse all elems in lists in worst case
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if list1 is None: return list2
         if list2 is None: return list1
